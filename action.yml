@@ -17,6 +17,9 @@ inputs:
     description: "Github Repo token"
     required: false
     default: ''
+  image-name:
+    description: 'Docker Image name'
+    required: true
 outputs:
   tag:
     description: "Tag that was published"
