@@ -20,8 +20,10 @@ while read -r IMAGE_ID; do
 
     echo "IMAGE_ID: $IMAGE_ID"
     # get the name label
-    NAME=$(basename ${GITHUB_REPOSITORY}).$(docker inspect --format '{{ index .Config.Labels.name }}' $IMAGE_ID)
+    # NAME=$(basename ${GITHUB_REPOSITORY}).$(docker inspect --format '{{ index .Config.Labels.name }}' $IMAGE_ID)
+    NAME=${GITHUB_REPOSITORY}
     PUSH="docker.pkg.github.com/${GITHUB_REPOSITORY}/$NAME:$VERSION"
+
 
     # tag and push
     docker tag $IMAGE_ID $PUSH
