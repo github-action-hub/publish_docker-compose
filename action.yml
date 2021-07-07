@@ -17,7 +17,7 @@ inputs:
     description: "Github Repo token"
     required: false
     default: ''
-  image-name:
+  image_name:
     description: 'Docker Image name'
     required: true
 outputs:
