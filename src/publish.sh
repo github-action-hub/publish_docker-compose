@@ -1,6 +1,7 @@
 VERSION="$1"
 DOCKER_COMPOSE="$2"
 REPO_TOKEN="$3"
+IMAGE_NAME="$4"
 
 echo "VERSION=$VERSION"
 echo "DOCKER_COMPOSE=$DOCKER_COMPOSE"
@@ -21,8 +22,7 @@ while read -r IMAGE_ID; do
     echo "IMAGE_ID: $IMAGE_ID"
     # get the name label
     # NAME=$(basename ${GITHUB_REPOSITORY}).$(docker inspect --format '{{ index .Config.Labels.name }}' $IMAGE_ID)
-    NAME=${GITHUB_REPOSITORY}
-    PUSH="docker.pkg.github.com/${GITHUB_REPOSITORY}/$NAME:$VERSION"
+    PUSH="docker.pkg.github.com/${GITHUB_REPOSITORY}/$IMAGE_NAME:$VERSION"
 
 
     # tag and push
